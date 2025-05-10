@@ -1,0 +1,144 @@
+/* static/style.css */
+
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #121212;
+    color: #e0e0e0;
+    margin: 0;
+    padding: 2rem;
+}
+
+h1 {
+    text-align: center;
+    color: #ff4c4c;
+    margin-bottom: 2rem;
+}
+
+form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+}
+
+input[type="text"],
+input[type="date"] {
+    padding: 10px;
+    width: 250px;
+    border: 1px solid #ff4c4c;
+    border-radius: 4px;
+    background-color: #1e1e1e;
+    color: #ffffff;
+}
+
+button {
+    padding: 10px 15px;
+    background-color: #ff4c4c;
+    color: #ffffff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+button:hover {
+    background-color: #b30000;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+    max-width: 700px;
+    margin: auto;
+}
+
+li {
+    background: #1e1e1e;
+    border: 1px solid #444;
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 6px;
+    position: relative;
+}
+
+li p {
+    margin: 5px 0;
+    color: #bbbbbb;
+}
+
+a {
+    color: #ff4c4c;
+    margin-left: 10px;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+hr {
+    border: 0;
+    height: 1px;
+    background-color: #333;
+    margin: 2rem 0;
+}
+
+.task-right {
+    position: absolute;
+    right: 15px;
+    top: 15px;
+}
+
+.status {
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-weight: bold;
+    font-size: 0.9rem;
+}
+
+.status.done {
+    background-color: #006400;
+    color: white;
+}
+
+.mark-done-btn {
+    padding: 5px 10px;
+    background-color: #ff4c4c;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    cursor: pointer;
+}
+
+.mark-done-btn:hover {
+    background-color: #b30000;
+}
+
+
+.task-actions {
+    margin-top: 10px;
+}
+
+.action-btn {
+    padding: 5px 10px;
+    background-color: #444;
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    margin-right: 8px;
+}
+
+.action-btn:hover {
+    background-color: #666;
+}
+
+.delete-btn {
+    background-color: #b30000;
+}
+
+.delete-btn:hover {
+    background-color: #800000;
+}

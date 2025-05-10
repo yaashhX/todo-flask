@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>To-Do List</title>
+</head>
+<body>
+    <h1>To-Do List</h1>
+
+    <!-- Add Task Form -->
+    <form action="/add" method="POST">
+        <input type="text" name="task" placeholder="Enter a new task" required>
+        <input type="date" name="due_date">
+        <input type="text" name="description" placeholder="Enter a task description">
+        <button type="submit">Add Task</button>
+    </form>
+
+    <hr>
+
+    <!-- Search Task Form -->
+    <form action="/search" method="POST">
+        <input type="text" name="keyword" placeholder="Search tasks" required>
+        <button type="submit">Search</button>
+    </form>
+
+    <hr>
+
+    <!-- Display message if no results found -->
+    {% if no_results %}
+        <p>No tasks found matching your search.</p>
+    {% endif %}
+
+    <!-- Task List -->
+    <ul>
+        {% if tasks %}
+            {% for task in tasks %}
+                <li>
+                    <strong>{{ task['title'] }}</strong>
+                    {% if task['description'] %}
+                    <p>{{ task['description'] }}</p>
+                    {% endif %}
+                    {% if task['due_date'] %}
+                        - Due: <span style="color: orange;">{{task['due_date'] }}</span>
+                    {% endif %}
+                    <div class="task-right">
+                        {% if task['done'] %}
+                            <span class="status done">Done</span>
+                        {% else %}
+                            <form action="/mark/{{ loop.index }}" method="POST" style="display:inline;">
+                                <button class="mark-done-btn" type="submit">Mark as Done</button>
+                            </form>
+                        {% endif %}
+                    </div>
+                    <div class="task-actions">
+                        <a href="/delete/{{ loop.index }}">Delete</a>
+                        <a href="/edit/{{ loop.index }}">Edit</a>
+                    </div>
+                </li>
+            {% endfor %}
+        {% else %}
+            <p>No tasks available!</p>
+        {% endif %}
+    </ul>
+</body>
+</html>
